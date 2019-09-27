@@ -6,9 +6,6 @@ const fetchAllComments = (videoId, pageToken, fetched = []) => fetchComments(vid
     ? fetchAllComments(videoId, nextPageToken, fetched.concat(comments))
     : Task.of(fetched.concat(comments)))
 
-fetchAllComments('h_tkIpwbsxY')
-  .fork(e => console.error('ERROR', e),
-    allComments => console.log(allComments))
 
 module.exports = {
   fetchComments,
